@@ -1,25 +1,39 @@
-public class PalindroneCheckerApp {
+class PalindroneCheckerApp{
 
-        public static void main(String[] args) {
 
-            // Hardcoded string
-            String input = "madam";
+    /**
+     * Application entry point for UC4.
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
 
-            // Assume it is a palindrome
-            boolean isPalindrome = true;
+        // Declare and initialize the input string.
+        String input = "radar";
 
-            // Loop till half of the string length
-            for (int i = 0; i < input.length() / 2; i++) {
-                if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
-                    isPalindrome = false;
-                    break;
-                }
+        // Convert the string into a character array.
+        char[] chars = input.toCharArray();
+
+        // Initialize pointer at the beginning.
+        int start = 0;
+
+        // Initialize pointer at the end.
+        int end = chars.length - 1;
+
+        // Assume palindrome initially.
+        boolean isPalindrome = true;
+
+        // Continue comparison until pointers cross.
+        while (start < end) {
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
             }
-
-            // Print result
-            System.out.println("Input text: " + input);
-            System.out.println("Is it a Palindrome? : " + isPalindrome);
+            start++;
+            end--;
         }
+
+        // Display result
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + isPalindrome);
     }
-
-
+}
